@@ -1,0 +1,269 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horoscope Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    body {
+      background-image: url("{% static 'image/hersc.jpg' %}"); /* Background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem; /* Increase heading size */
+      color: #289bff; /* Blue color */
+      font-weight: bold; /* Bold text */
+      margin-bottom: 2rem; /* Space below the heading */
+    }
+
+    .btn-horoscope {
+      background-color: #007bff; /* Bootstrap primary color */
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-horoscope:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .modal-content {
+      background-color: rgba(0, 0, 0, 0.9); /* Dark background for the modal */
+      color: white;
+    }
+
+    .modal-header {
+      border-bottom: none;
+    }
+
+    .modal-body {
+      text-align: left;
+    }
+    
+    .card {
+      margin: 1rem;
+      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent card background */
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    }
+
+    .card-body {
+      font-size: 1rem; /* Adjust text size in cards */
+    }
+  </style>
+</head>
+<body>
+    {% csrf_token %}
+  {% include '_navbar.html' %}
+
+  <div class="container">
+    <h1 class="mb-4">Horoscope Information</h1>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#ariesModal">Aries</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#taurusModal">Taurus</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#geminiModal">Gemini</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#cancerModal">Cancer</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#leoModal">Leo</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#virgoModal">Virgo</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#libraModal">Libra</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#scorpioModal">Scorpio</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#sagittariusModal">Sagittarius</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#capricornModal">Capricorn</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#aquariusModal">Aquarius</button>
+    <button type="button" class="btn btn-horoscope" data-bs-toggle="modal" data-bs-target="#piscesModal">Pisces</button>
+  </div>
+
+  <!-- Modal Templates -->
+  <div class="modal fade" id="ariesModal" tabindex="-1" aria-labelledby="ariesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ariesModalLabel">Aries</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Aries is a sign known for its dynamism and enthusiasm. As the first sign of the zodiac, Aries is characterized by its pioneering spirit and courage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="taurusModal" tabindex="-1" aria-labelledby="taurusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="taurusModalLabel">Taurus</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Taurus is known for its reliability and practicality. This sign values stability and is often seen as dependable and persistent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="geminiModal" tabindex="-1" aria-labelledby="geminiModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="geminiModalLabel">Gemini</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Gemini is known for its adaptability and versatility. This sign is often characterized by its curiosity and desire for knowledge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cancerModal" tabindex="-1" aria-labelledby="cancerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cancerModalLabel">Cancer</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Cancer is known for its emotional depth and sensitivity. This sign is often characterized by its nurturing and protective nature.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="leoModal" tabindex="-1" aria-labelledby="leoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="leoModalLabel">Leo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Leo is known for its confidence and charisma. This sign is often characterized by its leadership qualities and enthusiasm.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="virgoModal" tabindex="-1" aria-labelledby="virgoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="virgoModalLabel">Virgo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Virgo is known for its attention to detail and analytical nature. This sign is often characterized by its practicality and dedication.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="libraModal" tabindex="-1" aria-labelledby="libraModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="libraModalLabel">Libra</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Libra is known for its sense of balance and harmony. This sign is often characterized by its diplomatic nature and love for beauty.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="scorpioModal" tabindex="-1" aria-labelledby="scorpioModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="scorpioModalLabel">Scorpio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scorpio is known for its intensity and passion. This sign is often characterized by its determination and depth of emotion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="sagittariusModal" tabindex="-1" aria-labelledby="sagittariusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sagittariusModalLabel">Sagittarius</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Sagittarius is known for its adventurous and optimistic nature. This sign is often characterized by its love for exploration and freedom.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="capricornModal" tabindex="-1" aria-labelledby="capricornModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="capricornModalLabel">Capricorn</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Capricorn is known for its ambition and discipline. This sign is often characterized by its strong work ethic and practical approach to life.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="aquariusModal" tabindex="-1" aria-labelledby="aquariusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aquariusModalLabel">Aquarius</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Aquarius is known for its innovative and independent nature. This sign is often characterized by its progressive ideas and humanitarian outlook.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="piscesModal" tabindex="-1" aria-labelledby="piscesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="piscesModalLabel">Pisces</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Pisces is known for its empathetic and artistic nature. This sign is often characterized by its sensitivity and imagination.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
